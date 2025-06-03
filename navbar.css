@@ -1,0 +1,126 @@
+/* CSS for navbar */
+header {
+    height: 20vh; /* 20% of the screen height */
+    background-color: #9EC6C6; /* Lights blue/gray color for a professional and medical look */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif; /* Use Montserrat font */
+}
+
+header ul, header ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+header ul li, header ol li {
+    margin: 0 15px; /* Increased margin for better spacing */
+    font-size: 1.4em; /* Font size */
+    color: #333; /* Dark gray color for the text */
+    cursor: pointer;
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+ul li a{
+    text-decoration: none;
+    color: #333;
+}
+
+header ul li:hover, header ol li:hover {
+    text-decoration: underline;
+    color: #16a085; /* Change text color to a noticeable teal on hover 1abc9c*/
+}
+
+ul li a:hover{
+    text-decoration: underline;
+    color: #16a085;
+}
+
+.nav-left {
+    order: 1;
+}
+
+.nav-right {
+    order: 2;
+    margin-left: auto; /* Moves the ordered list to the far right */
+}
+
+.cursive-text {
+    font-family: 'Sacramento',cursive; /* Use cursive font family */
+    font-weight: 600; /* Make the text bold */
+    font-size: 2.2em; /* Match the font size of the surrounding text */
+    text-decoration: none;
+    color: #16a085;
+}
+
+header ul li, header ol li {
+    font-weight: 600; /* Use a bolder font weight for better readability */
+}
+
+/* header {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); } */
+
+body .navbar-body{
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ecf0f1; /* Light background color for contrast */
+}
+
+.dropbtn-profile, .dropbtn-category {
+    color: #333;
+    padding: 10px;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-profile, .dropdown-category {
+    position: relative;
+    display: inline-block;
+}
+
+/* Profile Dropdown */
+.dropdown-content-profile {
+    display: none;
+    position: absolute;
+    background-color: #9EC6C6;
+    font-size: 21px;
+    width: 350px;  /* Adjust width as needed */
+    height: auto;  /* Adjust height as needed */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    left: 0;
+    right: auto;
+    margin-left: 10px;
+    top: calc(100% + 10px);  /* Position below the dropdown button */
+    z-index: 1;  /* Ensure dropdown is above other content */
+    text-align: left;  /* Align text to the left */
+}
+
+.dropdown-content-profile p{
+    margin-left: 25px;
+    color: #333;
+}
+
+.dropdown-content-profile a {
+    color: black;
+    padding: 12px 16px;  /* Adjust padding as needed */
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content-profile a:hover {
+    background-color: #cdcccc;  /* Hover background color */
+}
+
+.dropdown-profile:hover .dropdown-content-profile {
+    display: block;  /* Show dropdown when profile button is hovered */
+}
+
+.dropdown-profile:hover .dropdown-content-profile {
+    display: block;
+}
+

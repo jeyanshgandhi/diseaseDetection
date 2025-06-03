@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='doctor_update.css') }}">
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <script type="text/javascript">
+                {% for category, message in messages %}
+                    alert("{{ message }}");
+                {% endfor %}
+            </script>
+        {% endif %}
+    {% endwith %}
+    <div class="container">
+        <div class="register-container">
+            <div class="register-form">
+                <h2>Update!</h2>
+                <form action="" method="post">
+                    {% set user = doctor_collection.find_one({'email': session['demail']}) %}
+                    <div class="input-group">
+                        <input type="text" id="name" name="name" pattern="[A-Za-z \s]{3,}" placeholder="{{user['name']}}">
+                    </div>
+                    <div class="input-group">
+                        <input type="date" id="dob" name="dob" value="{{user['dob']}}">
+                    </div>
+                    <div class="input-group">
+                        <input type="phone2numeric" id="phone" name="phone" placeholder="{{user['phone']}}">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="dqualification" name="dqualification" pattern="[A-Za-z \s]{3,}" placeholder="{{user['qualifications']}}">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="dspeciality" name="dspeciality" pattern="[A-Za-z \s]{3,}" placeholder="{{user['specialization']}}">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="dexperience" name="dexperience" placeholder="{{user['experience']}}">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="daddress" name="daddress" pattern="[A-Za-z \s]{3,}" placeholder="{{user['address']}}">
+                    </div>
+                    <button type="submit">Update</button>
+                </form>
+                <div class="register-link">
+                    <p>Delete account? <a href="{{ url_for('delete') }}">Delete</a></p>
+                    <p>Reset Password? <a href="{{ url_for('forgot_pass') }}">Reset Password</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="image-container">
+           <img src="{{ url_for('static', filename='update.jpg') }}" alt="Update Image">
+        </div>
+    </div>
+</body>
+</html>

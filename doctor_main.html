@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symptom Checker</title>
+    {% if redirect_to_login %}
+        <meta http-equiv="refresh" content="2;url={{ url_for('doctor_login') }}">
+    {% endif %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
+</head>
+<body class="main-body">
+    {% include "dnavbar.html" %}
+    <div class="container-1">
+        <h1>Symptom Checker: Find Out What Ails You</h1>
+        <p>Welcome to the Symptom Checker! Your health is our priority. By entering a few symptoms, our tool will help identify possible conditions you might be experiencing. This tool is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health providers with any questions you may have regarding a medical condition.</p>
+    </div>
+    <div class="container">
+        <section class="how-it-works">
+            <h2>How It Works</h2>
+            <div class="step">
+                <img src="{{ url_for('static', filename='sympto_img.png') }}" alt="Enter Symptoms">
+                <div>
+                    <strong>1. Enter Symptoms:</strong>
+                    <p>Describe your symptoms as accurately as possible. This helps our algorithm provide the most accurate analysis.</p>
+                </div>
+            </div>
+            <div class="step">
+                <img src="{{ url_for('static', filename='sympto_analysis.jpg') }}" alt="Analyzing Symptoms">
+                <div>
+                    <strong>2. Analyze Symptoms:</strong>
+                    <p>Our algorithm compares your symptoms with a comprehensive database of conditions to find potential matches.</p>
+                </div>
+            </div>
+            <div class="step">
+                <img src="{{ url_for('static', filename='result.png') }}" alt="Results">
+                <div>
+                    <strong>3. Get Results:</strong>
+                    <p>Receive a list of possible conditions along with relevant information and advice on the next steps to take.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits">
+            <h2>Why Use Our Symptom Checker?</h2>
+            <div class="benefit">
+                <img src="{{ url_for('static', filename='accuracy.png') }}" alt="Accurate">
+                <div>
+                    <strong>Accurate:</strong>
+                    <p>Our tool uses the latest medical data and advanced algorithms to ensure accuracy in identifying possible conditions.</p>
+                </div>
+            </div>
+            <div class="benefit">
+                <img src="{{ url_for('static', filename='convenient.png') }}" alt="Convenient">
+                <div>
+                    <strong>Convenient:</strong>
+                    <p>Available 24/7, our tool allows you to check your symptoms anytime, anywhere, providing peace of mind when you need it most.</p>
+                </div>
+            </div>
+            <div class="benefit">
+                <img src="{{ url_for('static', filename='private.jpg') }}" alt="Private">
+                <div>
+                    <strong>Private:</strong>
+                    <p>Your data is secure and private. We prioritize your confidentiality and use encryption to protect your information.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="get-started">
+            <h2>Get Started</h2>
+            <p>Ready to find out what might be causing your symptoms? Click the button below to start your symptom check.</p>
+            <button onclick="window.location.href='look_patient'">Patient Look-Up →</button>
+        </section>
+    </div>
+    
+</body>
+{% include "contact.html" %}
+</html>

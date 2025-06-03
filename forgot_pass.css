@@ -1,0 +1,89 @@
+/* style.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #9EC6C6;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    width: 400px;
+    background-color: #9EC6C6;
+    height: 400px;
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    color: #333; /* Set font color to #333 */
+    text-align: center;
+}
+
+.login-form {
+    background-color: #ffffff;
+    padding: 40px;
+    /* box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); */
+    flex: 1; /* Take remaining space */
+}
+
+.login-form h2 {
+    text-align: center;
+    color: #333333;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 107%;
+    padding: 10px;
+    border: none;
+    background-color: #9EC6C6;
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.register-link {
+    text-align: center;
+}
+
+.register-link a {
+    color: #9EC6C6;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+.login2-container {
+    width: 400px;
+    background-color: #9EC6C6;
+    height: 400px;
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    color: #333; /* Set font color to #333 */
+    text-align: center; /* Center text */
+}

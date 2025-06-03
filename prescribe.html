@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescribe Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='prescribe.css') }}">
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <script type="text/javascript">
+                {% for category, message in messages %}
+                    alert("{{ message }}");
+                {% endfor %}
+            </script>
+        {% endif %}
+    {% endwith %}
+    <div class="container">
+        <div class="register-container">
+            <div class="register-form">
+                <h2>Give Prescription!</h2>
+                <form action="{{ url_for('prescribe') }}" method="post">
+                    <input type="hidden" name="prediction" value="{{ prediction }}">
+                    <input type="hidden" name="date" value="{{ date }}">
+                    <div id="newElementId">
+                        <div class="input-group">
+                            <input type="text" id="prescribe1" name="prescribe1" placeholder="Prescribe">
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="prescribe2" name="prescribe2" placeholder="Prescribe">
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="prescribe3" name="prescribe3" placeholder="Prescribe">
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="prescribe4" name="prescribe4" placeholder="Prescribe">
+                        </div>
+                    </div>
+                    <div id="dynamicCheck" class="input-group1">
+                        <input type="button" value="Create Element" onclick="createNewElement();" />
+                    </div>
+                    <input type="hidden" id="counter" name="counter" value="4">
+                    <button type="submit">Prescribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/JavaScript">
+        var counter = 4; // Initial counter value
+
+        function createNewElement() {
+            // Increment counter for each new input field
+            counter++;
+            var newInputId = "prescribe" + counter;
+
+            // Create a new input field
+            var txtNewInputBox = document.createElement('div');
+            txtNewInputBox.innerHTML = "<div class='input-group'><input type='text' id='" + newInputId + "' name='" + newInputId + "' placeholder='" + newInputId + "' required></div>";
+        
+            // Append the new input field to the container
+            document.getElementById("newElementId").appendChild(txtNewInputBox);
+
+            // Update the hidden input field with the current counter value
+            document.getElementById("counter").value = counter;
+        }
+    </script>
+</body>
+</html>

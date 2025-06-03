@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='forgot_pass.css') }}">
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <script type="text/javascript">
+                {% for category, message in messages %}
+                    alert("{{ message }}");
+                {% endfor %}
+            </script>
+        {% endif %}
+    {% endwith %}
+    <div class="container">
+        <div class="login-container">
+            <div class="login-form">
+                <h2>Enter Email</h2>        
+                <form action="" method="post">
+                    <div class="input-group">
+                        <input type="hidden" name="form_id" value="form1">
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <button type="submit">Send OTP</button>
+                </form>
+            </div>
+        </div>
+        <div class="login2-container">
+            <div class="login-form">
+                <h2>Enter OTP</h2>        
+                <form action="" method="post">
+                    <div class="input-group">
+                        <input type="hidden" name="form_id" value="form2">
+                        <input type="number" id="received_otp" name="received_otp" placeholder="OTP" required>
+                    </div>
+                    <button type="submit">Send OTP</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

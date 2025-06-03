@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='doctor_register.css') }}">
+
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <script type="text/javascript">
+                {% for category, message in messages %}
+                    alert("{{ message }}");
+                {% endfor %}
+            </script>
+        {% endif %}
+    {% endwith %}
+    <div class="container">
+        <div class="register-container">
+            <div class="register-form">
+                <h2>Welcome Back!</h2>
+                <form action="" method="post">
+                    <div class="input-group">
+                        <input type="text" id="dname" name="dname" pattern = "[A-za-z]+" placeholder="Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="demail" name="demail" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="date" id="ddob" name="ddob" placeholder="Date of Birth" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="phone2numeric" id="dphone" name="dphone" pattern = "[0-9]+" placeholder="Mobile Number" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="dqualification" name="dqualification" pattern="[A-Za-z \s]{3,}" placeholder="Qualification" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="dspeciality" name="dspeciality" pattern="[A-Za-z \s]{3,}" placeholder="Field of Specialist" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="dexperience" name="dexperience" placeholder="Field of Experience" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="daddress" name="daddress" pattern="[A-Za-z \s]{3,}" placeholder="Address" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="dpassword" name="dpassword" placeholder="Password" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="dcpassword" name="dcpassword" placeholder="Confirm Password" required>
+                    </div>
+                    <button type="submit">Register</button>
+                </form>
+                <div class="register-link">
+                    <p>Have an account? <a href="{{url_for('doctor_login')}}">Login</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="image-container">
+           <img src="{{ url_for('static', filename='reset-password.jpg') }}" alt="Register">
+        </div>
+    </div>
+</body>
+</html>

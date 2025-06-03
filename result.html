@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicted Disease and Specialist Doctors</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+</head>
+<body>
+    {% include "navbar.html" %}
+    
+    <section class="result_box">
+        <div class="box">
+            <h2>Recommended Doctors for the predicted Disease <br><br><b><i>{{ prediction }}</i></b></h2>
+        </div>
+    </section>
+    
+    <section class="doctor_profiles">
+        {% if doctors %}
+            {% for doctor in doctors %}
+            <div class="doctor_profile">
+                <div class="doctor_info">
+                    <h2>{{ doctor['name'] }}</h2>
+                    <p class="specialization"><strong>Specialist in:</strong> {{ doctor['specialization'] }}</p>
+                    <p><strong>Qualifications:</strong> {{ doctor['qualifications'] }}</p>
+                    <p><strong>Experience:</strong> {{ doctor['experience'] }} years</p>
+                    <p><strong>Contact:</strong> {{ doctor['phone'] }}</p>
+                    <p><strong>Email:</strong> <a href="mailto:{{ doctor['email'] }}">{{ doctor['email'] }}</a></p>
+                    <p><strong>Clinic Address:</strong> {{ doctor['address'] }}</p>
+                    <div class="doctor_button">
+                        <a href="" class="request-call" data-doctor-email="{{ doctor['email'] }}">Request Call</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>No specialist doctors found for {{ prediction }}.</p>
+        {% endif %}
+    </section>
+    
+    {% include "contact.html" %}
+    <script>
+        document.querySelectorAll('.request-call').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();  // Prevent the default link behavior
+
+                const doctorEmail = this.getAttribute('data-doctor-email');
+
+                fetch('/send_session_to_doctor', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ doctor_email: doctorEmail })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(errorData => {
+                            throw new Error(errorData.message || 'Unknown error');
+                        });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Session data sent:', data);
+                    alert('Request sent successfully!');
+
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alert('Failed to send session data. Error: ' + error.message);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

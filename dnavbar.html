@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='navbar.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Sacramento&display=swap" rel="stylesheet">
+</head>
+</head>
+</head>
+<body class="navbar-body">
+    <header>
+        <ul class="nav-left">
+            <li class="dropdown-profile">
+                <a href="" class="dropbtn-profile">Profile</a>
+                <div class="dropdown-content-profile {% if 'demail' in session %}logged-in{% else %}logged-out{% endif %}">
+                    {% if 'demail' in session %}
+                        {% set user = doctor_collection.find_one({'email': session['demail']})%}
+                        <p>Name: {{ user['name'] }}</p>
+                        <p>Phone: {{ user['phone'] }}</p>
+                        <p>DOB: {{ user['dob'] }}</p>
+                        <a href="{{ url_for('doctor_update') }}">Update</a>
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                    {% else %}
+                        <a href="{{ url_for('doctor_login') }}">Login</a>
+                        <a href="{{ url_for('doctor_register') }}">Register</a>
+                    {% endif %}
+                </div>
+            </li>
+            <li><a href="{{ url_for('look_patient') }}"> Look Patient </a></li>
+            <li><a href="{{ url_for('doctorHistory') }}"> History </a></li>
+            
+        </ul>
+        <ol class="nav-right">
+            <li><a class="cursive-text" href="{{url_for('doctor_main')}}">SymptoScan</a></li>
+        </ol>
+    </header>
+</body>
+</html>

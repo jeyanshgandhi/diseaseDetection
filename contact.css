@@ -1,0 +1,86 @@
+/* Global CSS */
+footer .custom-body-class {
+    width: 97.5%;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2; /* Light gray background */
+    position: relative; /* Set position to relative for absolute positioning */
+}
+
+.container-bottom {
+     /* Set position to fixed */
+     /* Take up full width of the viewport */
+    bottom: 0; /* Stick to the bottom */
+    padding: 20px;
+    background-color: #9EC6C6; /* Match navbar background color */
+    text-align: center; /* Center-align content */
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+    color: #333; /* White text color */
+}
+
+.section-title-bottom {
+    margin-bottom: 10px;
+    color: #333;/* White text color */
+}
+
+.contact-details,
+.social-links,
+.thoughts {
+    margin-bottom: 20px;
+    color: #333; /* White text color */
+}
+
+.contact-details ul,
+.social-links ul,
+.thoughts ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.contact-details li,
+.social-links li {
+    display: inline-block; /* Display in a single line */
+    margin-right: 10px;
+}
+
+.contact-details li:last-child,
+.social-links li:last-child {
+    margin-right: 0; /* Remove margin from last item */
+}
+
+.contact-details a,
+.social-links a {
+    text-decoration: none;
+    color: #333; /* White text color */
+}
+
+.contact-details a:hover,
+.social-links a:hover {
+    color: #16a085; /* Hover background color */
+}
+
+.social-links {
+    text-align: center;
+}
+
+.social-links li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.social-links li:last-child {
+    margin-right: 0; /* Remove margin from last item */
+}
+
+.thoughts {
+    text-align: center;
+}
+
+.thoughts p {
+    margin-top: 0;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='reset.css') }}">
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <script type="text/javascript">
+                {% for category, message in messages %}
+                    alert("{{ message }}");
+                {% endfor %}
+            </script>
+        {% endif %}
+    {% endwith %}
+    <div class="container">
+        <div class="login-container">
+            <div class="login-form">
+                <h2>Welcome Back!</h2>
+                <form action="" method="post">
+                    <div class="input-group">
+                        <input type="text" id="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="cpassword" name="cpassword" placeholder="Confirm Password" required>
+                    </div>
+                    <button type="submit">Reset Password</button>
+                </form>
+            </div>
+        </div>    
+    </div>
+</body>
+</html>

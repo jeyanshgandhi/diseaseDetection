@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Disease</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='check_disease.css') }}">
+
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <script type="text/javascript">
+                {% for category, message in messages %}
+                    alert("{{ message }}");
+                {% endfor %}
+            </script>
+        {% endif %}
+    {% endwith %}
+    <div class="container">
+        <div class="register-container">
+            <div class="register-form">
+                <h2>Write Symptoms</h2>
+                <form action="" method="post">
+                    <div class="input-group">
+                        <input type="text" id="symptom-1" name="symptom-1" pattern="[A-Za-z \s]{3,}" placeholder="Symptom-01">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="symptom-2" name="symptom-2" pattern="[A-Za-z \s]{3,}" placeholder="Symptom-02">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="symptom-3" name="symptom-3" pattern="[A-Za-z \s]{3,}" placeholder="Symptom-03">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="symptom-4" name="symptom-4" pattern="[A-Za-z \s]{3,}" placeholder="Symptom-04">
+                    </div>
+                    <button type="submit">Check</button>
+                </form>
+            </div>
+        </div>
+        {% if prediction %}
+            <div class="result-container">
+                <div class = "result-box">
+                    <h2>Based on the symptoms provided, predicted disease is: <b><i>{{ prediction }}</h2>
+                    <a href="{{ url_for('result') }}" class="result-button">Find Doctors</a>
+                </div>
+            </div>
+        {% else %}
+        <div class="image-container">
+           <img src="{{ url_for('static', filename='reset-password.jpg') }}" alt="Register">
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

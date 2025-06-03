@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+.heading-box {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.doctor_profiles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.doctor_profile {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 10px;
+    padding: 20px;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.doctor_info_left, .doctor_info_middle, .doctor_info_right {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.doctor_info_left h2 {
+    color: #333;
+    margin: 10px 0;
+}
+
+.doctor_info_left p, .doctor_info_middle p, .doctor_info_right p {
+    color: #666;
+    margin: 5px 0;
+}
+
+.doctor_info_left .specialization {
+    margin-bottom: 10px;
+}
+
+.fa {
+    margin-right: 5px; /* Adjust icon spacing */
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,197 @@
+body{
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.container-1 {
+
+    text-align: center;
+    background-color: #9EC6C6;
+    color: #333;
+    padding: 40px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.container-1 h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.container-1 p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.container {
+    width: 97.31%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    padding: 40px 20px;
+}
+
+.how-it-works h2, .benefits h2, .get-started h2 {
+    font-size: 2em;
+    color: #007BFF;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.step, .benefit {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.step:nth-child(odd), .benefit:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+.step img, .benefit img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+.step div, .benefit div {
+    flex: 1;
+    padding: 10px;
+}
+
+.step div strong, .benefit div strong {
+    font-size: 1.2em;
+    color: #007BFF;
+}
+
+.step div p, .benefit div p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.get-started {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.get-started p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.get-started button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.get-started button:hover {
+    background-color: #0056b3;
+}
+
+/* Contact CSS */
+.custom-body-class {
+    width: 97.31%;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2; /* Light gray background */
+    position: relative; /* Set position to relative for absolute positioning */
+}
+
+.container-bottom {
+    /* position: fixed; Set position to fixed */
+    width: 100%; /* Take up full width of the viewport */
+    bottom: 0; /* Stick to the bottom */
+    padding: 20px;
+    background-color: #9EC6C6; /* Match navbar background color */
+    text-align: center; /* Center-align content */
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+    color: #333; /* White text color */
+}
+
+.section-title-bottom {
+    margin-bottom: 10px;
+    color: #333;/* White text color */
+}
+
+.contact-details,
+.social-links,
+.thoughts {
+    margin-bottom: 20px;
+    color: #333; /* White text color */
+}
+
+.contact-details ul,
+.social-links ul,
+.thoughts ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.contact-details li,
+.social-links li {
+    display: inline-block; /* Display in a single line */
+    margin-right: 10px;
+}
+
+.contact-details li:last-child,
+.social-links li:last-child {
+    margin-right: 0; /* Remove margin from last item */
+}
+
+.contact-details a,
+.social-links a {
+    text-decoration: none;
+    color: #333; /* White text color */
+}
+
+.contact-details a:hover,
+.social-links a:hover {
+    color: #16a085; /* Hover background color */
+}
+
+.social-links {
+    text-align: center;
+}
+
+.social-links li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.social-links li:last-child {
+    margin-right: 0; /* Remove margin from last item */
+}
+
+.thoughts {
+    text-align: center;
+}
+
+.thoughts p {
+    margin-top: 0;
+}

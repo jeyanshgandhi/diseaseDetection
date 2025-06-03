@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='history.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<body>
+    <section class="heading-box">
+        <div class="box">
+            <h1>Patients History</h1>
+        </div>
+    </section>
+    <section class="doctor_profiles">
+        {% if users %}
+            {% for user in users %}
+            <div class="doctor_profile">
+                <div class="doctor_info_left">
+                    <h2>{{ user['doctor_name'] }}</h2>
+                    <p><i class="fas fa-info-circle"></i> <strong>Doctor's email:</strong> {{ user['doctor_email'] }}</p>
+                    <p><i class="fas fa-info-circle"></i> <strong>Status:</strong> {{ user['status'] }}</p>
+                    <p><i class="fas fa-calendar-alt"></i> <strong>Date:</strong> {{ user['date'] }}</p>
+                </div>
+                <div class="doctor_info_middle">
+                    <p><i class="fas fa-disease"></i> <strong>Disease:</strong> {{ user['disease'] }}</p>
+                    <p><i class="fas fa-symptoms"></i> <strong>Symptom-1:</strong> {{ user['symptom-1'] }}</p>
+                    <p><i class="fas fa-symptoms"></i> <strong>Symptom-2:</strong> {{ user['symptom-2'] }}</p>
+                    <p><i class="fas fa-symptoms"></i> <strong>Symptom-3:</strong> {{ user['symptom-3'] }}</p>
+                    <p><i class="fas fa-symptoms"></i> <strong>Symptom-4:</strong> {{ user['symptom-4'] }}</p>
+                </div>
+                <div class="doctor_info_right">
+                    {% for prescribe in user.prescription %}
+                        <p><i class="fas fa-prescription"></i> <strong>Prescription:</strong> {{ prescribe }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        {% endif %}
+    </section>
+</body>
+</html>

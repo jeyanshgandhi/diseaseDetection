@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Look Patient</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='look.css') }}">
+</head>
+<body>
+    <section class="heading-box">
+        <div class="box">
+            <h1>Patients Requesting Call</h1>
+        </div>
+    </section>
+
+    <section class="patient_profiles">
+        {% if doctors_email and patient_profile %}
+            {% for patient in patient_profile %}
+                <div class="patient_profile">
+                    <div class="patient_info">
+                        <h2>Patient Data</h2>
+                        <p><strong>Patient Name:</strong> {{ patient.name }}</p>
+                        <p><strong>Patient Email:</strong> {{ patient.email }}</p>
+                        <p><strong>Patient Phone Number:</strong> {{ patient.phone }}</p>
+                        <p><strong>Patient Disease:</strong> {{ patient.prediction }}</p>
+                        <p><strong>Request Date:</strong> {{ patient.date }}</p><br>
+                        <div class="patient_button">
+                            <form action = "{{ url_for('done') }}" method="post">
+                                <input type="hidden" name="prediction" value="{{ patient.prediction }}">
+                                <input type="hidden" name="date" value="{{ patient.date }}">
+                                <button type="submit" class="left">Accepted</button>
+                            </form>
+                            <form action = "{{ url_for('prescribes') }}" method="post">
+                                <input type="hidden" name="prediction" value="{{ patient.prediction }}">
+                                <input type="hidden" name="date" value="{{ patient.date }}">
+                                <button type="submit" class="middle">prescribe</button>
+                            </form>
+                            <form action = "{{ url_for('reject') }}" method="post">
+                                <input type="hidden" name="prediction" value="{{ patient.prediction }}">
+                                <input type="hidden" name="date" value="{{ patient.date }}">
+                                <button type="submit" class="right">Rejected</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}   
+        {% else %}
+            <p>No patients have requested a call.</p>
+        {% endif %}
+    </section>
+    
+</body>
+</html>
